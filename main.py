@@ -55,16 +55,13 @@ def macd_search(syms):
 
 
 def trade(all_coins, positions, moves):
-    # print(info)
     info = pd.read_csv(r'crypto_info.csv')
     for sym in all_coins:
         move = moves[sym]
         quant = float(positions[sym]) if sym in positions else 0
         worth = float(r.crypto.get_crypto_quote(sym)['mark_price']) * quant
         if move == 1:  # wanna be in this pos
-            # print('Want to hold {}'.format(sym))
             if sym in positions:  # already in this pos
-                # print('\tAlready holding {}'.format(sym))
                 continue
             else:  # time to buy into the pos
                 old_worth = round(float(info.at[0, sym]), 2)
@@ -73,9 +70,7 @@ def trade(all_coins, positions, moves):
                 r.orders.order_buy_crypto_by_price(sym, old_worth)
                 info.at[0, sym] = 0
         else:  # don't wanna be in this pos
-            # print('Don\'t want to hold {}'.format(sym))
             if sym not in positions:  # not in this pos
-                # print('\tNot holding {}'.format(sym))
                 continue
             else:  # time to get out of this pos
                 print('Let\'s sell {:.4f} {}'.format(quant, sym))
