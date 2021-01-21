@@ -82,6 +82,5 @@ while 2 == 2:
     all_pos = list(info.columns)
     open_pos = get_open_positions()
     movements = macd_search(all_pos)
-    print(movements)
     trade(all_pos, open_pos, movements)
     time.sleep(60)
