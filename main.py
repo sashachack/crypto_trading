@@ -5,10 +5,8 @@ import schedule as sch
 import time
 import datetime as dt
 
-file = open('C:/Users/schac/Documents/rh_login.txt', 'r')
-username = file.readline()
-password = file.readline()
-file.close()
+username = 'your_username'
+password = 'your_password'
 r.login(username, password)
 
 info = pd.read_csv(r'crypto_info.csv')
