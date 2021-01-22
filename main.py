@@ -1,7 +1,6 @@
 import robin_stocks as r
 import talib as tl
 import pandas as pd
-import schedule as sch
 import time
 import datetime as dt
 
